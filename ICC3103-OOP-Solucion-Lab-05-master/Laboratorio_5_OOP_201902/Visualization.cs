@@ -27,11 +27,15 @@ namespace Laboratorio_5_OOP_201902
                     Console.ResetColor();
                 }
             }
-        }
+            Console.WriteLine("");
+        }   
 
         public static void ShowDecks(List<Deck> decks)
         {
-
+            for (int i = 0; i < decks.Count; i++)
+            {
+                Console.WriteLine($"({i}) Deck {i+1}");
+            }
         }
 
         public static void GetUserInput(int maxInput, bool stopper=false)
