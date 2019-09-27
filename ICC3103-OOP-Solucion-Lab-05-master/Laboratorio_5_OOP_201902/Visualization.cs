@@ -10,20 +10,21 @@ namespace Laboratorio_5_OOP_201902
         
         public static void ShowHand(Hand hand)
         {
+            Console.WriteLine("Hand:");
             int counter = 0;
             foreach (Card card in hand.Cards)
             {
                 if (card.GetType().Name == nameof(CombatCard))
                 {
                     Console.ForegroundColor = ConsoleColor.Red;
-                    Console.WriteLine($"({counter++}): {card.Name}");
+                    Console.WriteLine($"({counter++}) {card.Name} ({card.GetType()})");
                     Console.ResetColor();
                 }
 
                 if (card.GetType().Name == nameof(SpecialCard))
                 {
                     Console.ForegroundColor = ConsoleColor.Blue;
-                    Console.WriteLine($"({counter++}): {card.Name}");
+                    Console.WriteLine($"({counter++}) {card.Name} ({card.GetType()})");
                     Console.ResetColor();
                 }
             }
@@ -32,9 +33,19 @@ namespace Laboratorio_5_OOP_201902
 
         public static void ShowDecks(List<Deck> decks)
         {
+            Console.WriteLine("Select one deck:");
             for (int i = 0; i < decks.Count; i++)
             {
                 Console.WriteLine($"({i}) Deck {i+1}");
+            }
+        }
+
+        public static void ShowCaptains(List<SpecialCard> captains)
+        {
+            Console.WriteLine("Select one captain:");
+            for (int i = 0; i < captains.Count; i++)
+            {
+                Console.WriteLine($"({i}) {captains[i].Name}: {captains[i].Effect}");
             }
         }
 
