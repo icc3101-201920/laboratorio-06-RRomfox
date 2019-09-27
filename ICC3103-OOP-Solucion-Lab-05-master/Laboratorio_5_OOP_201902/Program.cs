@@ -1,6 +1,8 @@
 ﻿using Laboratorio_5_OOP_201902.Cards;
 using System;
 using System.Collections.Generic;
+using System.IO;
+
 
 namespace Laboratorio_5_OOP_201902
 {
@@ -31,9 +33,9 @@ namespace Laboratorio_5_OOP_201902
             {
                 Console.WriteLine($"{counter++}: {card.Name}");
             }
-            
+
             //Test Change Card
-            
+
             //player.ChangeCard(3);
             //counter = 1;
             //Console.WriteLine("\n New Player Hand:");
@@ -47,10 +49,10 @@ namespace Laboratorio_5_OOP_201902
             //{
             //    Console.WriteLine($"{counter++}: {card.Name}");
             //}
-            
+
 
             //Test draw card
-            
+
             //player.DrawCard();
             //counter = 1;
             //Console.WriteLine("\n New Player Hand:");
@@ -64,10 +66,10 @@ namespace Laboratorio_5_OOP_201902
             //{
             //    Console.WriteLine($"{counter++}: {card.Name}");
             //}
-            
+
 
             //Test play card
-            
+
             //player.PlayCard(6);
             //counter = 1;
             //Console.WriteLine("\n New Player Hand:");
@@ -78,8 +80,7 @@ namespace Laboratorio_5_OOP_201902
             //Console.WriteLine(String.Join(", ", board.GetMeleeAttackPoints()));
             //Console.WriteLine(String.Join(", ", board.GetRangeAttackPoints()));
             //Console.WriteLine(String.Join(", ", board.GetLongRangeAttackPoints()));
-            
-            
+
         }
     }
 }
