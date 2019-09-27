@@ -10,21 +10,21 @@ namespace Laboratorio_5_OOP_201902
         
         public static void ShowHand(Hand hand)
         {
-            Console.WriteLine("Hand:");
+            Console.WriteLine("Hand:\n");
             int counter = 0;
             foreach (Card card in hand.Cards)
             {
                 if (card.GetType().Name == nameof(CombatCard))
                 {
                     Console.ForegroundColor = ConsoleColor.Red;
-                    Console.WriteLine($"({counter++}) {card.Name} ({card.GetType()})");
+                    Console.Write($"({counter++}) {card.Name} ({card.GetType()})");
                     Console.ResetColor();
                 }
 
                 if (card.GetType().Name == nameof(SpecialCard))
                 {
                     Console.ForegroundColor = ConsoleColor.Blue;
-                    Console.WriteLine($"({counter++}) {card.Name} ({card.GetType()})");
+                    Console.Write($"({counter++}) {card.Name} ({card.GetType()})");
                     Console.ResetColor();
                 }
             }
@@ -33,23 +33,25 @@ namespace Laboratorio_5_OOP_201902
 
         public static void ShowDecks(List<Deck> decks)
         {
-            Console.WriteLine("Select one deck:");
+            Console.WriteLine("Select one deck:\n");
             for (int i = 0; i < decks.Count; i++)
             {
                 Console.WriteLine($"({i}) Deck {i+1}");
             }
-        }
+            Console.WriteLine("");
+        }   
 
         public static void ShowCaptains(List<SpecialCard> captains)
         {
-            Console.WriteLine("Select one captain:");
+            Console.WriteLine("Select one captain:\n");
             for (int i = 0; i < captains.Count; i++)
             {
                 Console.WriteLine($"({i}) {captains[i].Name}: {captains[i].Effect}");
             }
+            Console.WriteLine("");
         }
 
-        public static int GetUserInput(int maxInput, bool stopper)
+        public static int GetUserInput(int maxInput, bool stopper=false)
         {
             string userInput = Console.ReadLine();
             int inputNumber;
@@ -63,7 +65,7 @@ namespace Laboratorio_5_OOP_201902
                 ConsoleError($"The option ({inputNumber}) is not valid, try again\n");
                 userInput = Console.ReadLine();
             }
-            while ((stopper = true) && (inputNumber < -1) && (inputNumber > maxInput))
+            while ((stopper=true) && (inputNumber < -1) && (inputNumber > maxInput))
             {
                 ConsoleError($"The option ({inputNumber}) is not valid, try again\n");
                 userInput = Console.ReadLine();
@@ -81,17 +83,28 @@ namespace Laboratorio_5_OOP_201902
 
         public static void ShowProgramMessage(string message)
         {
-
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine(message + "\n");
+            Console.ResetColor();
         }
 
-        public static void ShowListOptions (List<string>options, string message=null)
+        public static void ShowListOptions(List<string>options, string message=null)
         {
+            if (message != null)
+            {
+                Console.WriteLine(message + "\n");
+            }
 
+            for (int i = 0; i < options.Count; i++)
+            {
+                Console.WriteLine($"({i}) {options[i]}");
+            }
+            Console.WriteLine("");
         }
 
         public static void ClearConsole()
         {
-
+            Console.Clear();
         }
 
     }
