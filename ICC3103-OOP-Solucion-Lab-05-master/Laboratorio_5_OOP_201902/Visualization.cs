@@ -49,14 +49,34 @@ namespace Laboratorio_5_OOP_201902
             }
         }
 
-        public static void GetUserInput(int maxInput, bool stopper=false)
+        public static int GetUserInput(int maxInput, bool stopper)
         {
-
+            string userInput = Console.ReadLine();
+            int inputNumber;
+            while (!int.TryParse(userInput, out inputNumber))
+            {
+                ConsoleError("Input must be a number, try again\n");
+                userInput = Console.ReadLine();
+            }
+            while ((stopper=false) && (inputNumber < 0) && (inputNumber > maxInput))
+            {
+                ConsoleError($"The option ({inputNumber}) is not valid, try again\n");
+                userInput = Console.ReadLine();
+            }
+            while ((stopper = true) && (inputNumber < -1) && (inputNumber > maxInput))
+            {
+                ConsoleError($"The option ({inputNumber}) is not valid, try again\n");
+                userInput = Console.ReadLine();
+            }
+            return inputNumber;
         }
 
         public static void ConsoleError(string message)
         {
-
+            Console.BackgroundColor = ConsoleColor.Red;
+            Console.ForegroundColor = ConsoleColor.White;
+            Console.WriteLine("\n" + message);
+            Console.ResetColor();
         }
 
         public static void ShowProgramMessage(string message)
